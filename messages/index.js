@@ -22,7 +22,7 @@ var recognizer = new builder_cognitiveservices.QnAMakerRecognizer({
 
 var basicQnAMakerDialog = new builder_cognitiveservices.QnAMakerDialog({
     recognizers: [recognizer],
-                defaultMessage: 'Sorry I am not sure about your question, but I am constantly learning ;) try some other question for now :)',
+                defaultMessage: '[Flux Bot] Sorry I could not understand your question. I am constantly learning, please change your question or contact a human at "msftflux@microsoft.com"',
                 qnaThreshold: 0.3}
 );
 
