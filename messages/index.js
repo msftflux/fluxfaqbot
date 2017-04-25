@@ -37,6 +37,7 @@ var basicQnAMakerDialog = new builder_cognitiveservices.QnAMakerDialog({
 
 if (!useEmulator) {
     bot.dialog('/', basicQnAMakerDialog);
+    module.exports = { default: connector.listen() }
 }
 else {
 
