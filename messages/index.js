@@ -9,7 +9,7 @@ var useEmulator = true;
 //var useEmulator = (process.env.NODE_ENV == 'development');
 
 var environment = process.env['BotEnv'];
-useEmulator = (environment == 'dev') ? "true":"fasle";
+useEmulator = (environment == 'dev') ? true : false;
 
 var connector = useEmulator ? new builder.ChatConnector({
     appId: process.env['MicrosoftAppId'],
@@ -38,9 +38,8 @@ var basicQnAMakerDialog = new builder_cognitiveservices.QnAMakerDialog({
 if (!useEmulator) {
     bot.dialog('/', basicQnAMakerDialog);
     module.exports = { default: connector.listen() }
-}
+} 
 else {
-
     var restify = require('restify');
     var server = restify.createServer();
     server.listen(3978, function () {
@@ -50,6 +49,3 @@ else {
     bot.dialog('/', basicQnAMakerDialog);
 }
 
-// else {
-//     module.exports = { default: connector.listen() }
-// }
